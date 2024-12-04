@@ -1,13 +1,37 @@
 "use client"
 import Link from 'next/link'
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
+import useAuth from 'app/utils/user/useAuth';
+import { logoutUser } from "app/serverless/utils/auth";
 
 export default function ButtonsNavbar({styles}){
 
   const router = useRouter();
+  const pathname = usePathname()
+  const user = useAuth()
 
   const authRedirect = () => {
     router.push('/autenticacion');
+  }
+
+  if(pathname === "/autenticacion"){
+    return(
+      <>
+      </>
+    )
+  }
+
+  if(user){
+    return(
+      <div style={{height:"100%"}}>
+        <div>
+          <button onClick={() => {
+            logoutUser()
+              .then(() => router.push('/'))
+          }}>Cerrar sesion</button>
+        </div>
+      </div>
+    )
   }
  
   return(
