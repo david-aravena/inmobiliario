@@ -1,0 +1,82 @@
+.navbar{
+  width:100%;
+  background-color: #1b1464;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logoContainer{
+  width: 50%;
+}
+
+.buttonsContainer{
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+}
+
+.authContainer{
+  display: flex;
+  align-items: center;
+  margin: 0 1rem;
+}
+
+.authContainer p{
+  display: block;
+  font-family: var(--font-montserrat-regular), sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: white;
+  
+}
+
+.publishPropertyContainer{
+  background-color: #ffd35a;
+  margin: auto 0;
+  padding: 0 8px;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  color: black;
+  border-radius: 8px
+}
+
+.publishPropertyContainer p{
+  display: block;
+  color: black;
+  font-family: var(--font-montserrat-regular), sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 8px 16px;
+  
+}
+
+.icons{
+  display: none;
+}
+
+@media (max-width: 1000px) {
+
+  .publishPropertyContainer{
+    display: none;
+  }
+
+  .authContainer{
+    display: none;
+  }
+
+  .icons{
+    display: block;
+    margin: 0 8px;
+    border-radius: 100px;
+  }
+
+  .smallScreenNavbar{
+    margin: auto 0;
+    display: flex;
+    align-items: center;
+  }
+
+}

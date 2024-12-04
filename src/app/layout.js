@@ -1,4 +1,12 @@
+import localFont from "next/font/local";
+import Navbar from 'app/components/navbar/'
 import "./globals.css";
+
+const montserratRegular = localFont({
+  src: './fonts/Montserrat-Regular.ttf',
+  variable: '--font-montserrat-regular',
+  weight: '400',
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -7,8 +15,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="eS">
-      <body>
+    <html lang="es">
+      <body className={`${montserratRegular.variable}`}>
+        <div style={{width:"100vw"}}>
+          <Navbar />
+        </div>
         {children}
       </body>
     </html>
