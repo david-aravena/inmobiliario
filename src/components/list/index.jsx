@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Navbar from 'app/components/navbar/'
 import Image from 'next/image'
 import styles from './css/list.module.css'
 
@@ -10,6 +11,14 @@ export default function List({ getItems, filter, CardUI , ModalUI}) {
   const handleSelectItem = (item) => {
     setItemSelected(item)
   }
+
+  const handleFilter = (styles) => {
+    const filteredItems = filter(styles, setItems);
+    if (filteredItems && filteredItems.length === 0) {
+      alert("No se encontraron resultados con el filtro");
+    }
+    return filteredItems
+  };
 
   useEffect(() => {
     getItems()
@@ -33,7 +42,7 @@ export default function List({ getItems, filter, CardUI , ModalUI}) {
   return (
     <>
       <div className={styles.filterContainer}>
-        {filter(styles, setItems)}
+        {handleFilter(styles)}
       </div>
       {items ? (
         <>
@@ -57,10 +66,14 @@ export default function List({ getItems, filter, CardUI , ModalUI}) {
           </div>
 
           {itemSelected && (
-            <ModalUI
-              itemSelected={itemSelected}
-              setItemSelected={setItemSelected} // Pasamos la función de seteo de estado
-            />
+            <div>
+              <ModalUI
+                itemSelected={itemSelected}
+                setItemSelected={setItemSelected} // Pasamos la función de seteo de estado
+              >
+                <Navbar />
+              </ModalUI>
+            </div>
           )}
           
         </>

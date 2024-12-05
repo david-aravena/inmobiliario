@@ -83,6 +83,66 @@
   border-radius: 8px;
 }
 
+.contactContainer{
+  display: flex;
+  width: 100%;
+  padding: 32px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+  border-radius: 8px;
+  background: #F5F5F9;
+}
+
+.inputContactContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+}
+
+.inputContactContainer label{
+  color: #393F49;
+  font-family: var(--font-montserrat-semi-bold), sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.inputContact{
+  display: flex;
+  padding: 8px 15px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px solid var(--Gris-800, #9A9BA0);
+  background: #FFF;
+}
+
+.buttonSendMessage{
+  display: flex;
+  width: 92px;
+  height: 26px;
+  padding: 4px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  background: #9E005D;
+  color: #FFF;
+  text-align: center;
+  font-family: var(--font-montserrat-semi-bold), sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.32px;
+  border: none;
+}
+
 
 @media (max-width: 1000px) {
   .imagesContainer{

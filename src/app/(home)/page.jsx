@@ -14,8 +14,10 @@ export default function Home() {
             "https://firebasestorage.googleapis.com/v0/b/inmobiliario-e6a3e.appspot.com/o/banners%2Ffondo-vector-banner-onda-azul-fluido-abstracto_561505-3.avif?alt=media&token=02ba6ea3-c10e-4e0d-b185-f93fc15c5fb6"
           ]} />
         </div>
-
-        <ListProperties />
+        
+        <div>
+          <ListProperties />
+        </div>
       </div>
     </div>
   );
