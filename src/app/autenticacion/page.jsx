@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { getGoogleUser } from './utils/getGoogleUser';
 import {createUser} from "app/serverless/utils/auth/"
 import {loginUser} from 'app/serverless/utils/auth/'
+import SpinnerButton from 'app/components/buttonSpinner/'
 import styles from './auth.module.css'
 
 export default function Auth(){
@@ -36,17 +37,19 @@ export default function Auth(){
   // Función para manejar el envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
-    getInputsForm();
+    alert("Las cuentas de usuario aun no estan habilitadas")
+    // getInputsForm();
     // Aquí puedes manejar el proceso de login o signup
   };
 
   const getGoogleForm = async () => {
-    try{
-      const user = await getGoogleUser();
-      router.push('/propiedades')
-    } catch(error){
-      console.log("getGoogleForm: ", error)
-    } 
+    alert("Las cuentas de usuario aun no estan habilitadas")
+    // try{
+    //   const user = await getGoogleUser();
+    //   router.push('/propiedades')
+    // } catch(error){
+    //   console.log("getGoogleForm: ", error)
+    // } 
   };
 
   return(
@@ -54,7 +57,7 @@ export default function Auth(){
       <div className={styles.authContainer}>
       <div className={styles.auth}>
         {isLogin ? (
-          <form onSubmit={handleSubmit}>
+          <form>
             <div className={styles.field}>
               <div className={styles.containerLabel}>
                 <label className={styles.label}>Email</label>
@@ -81,9 +84,9 @@ export default function Auth(){
             </div>
             <div className={styles.field}>
               <div className={styles.submitContainer}>
-                <button className={styles.submit} type="submit">
-                  Entrar
-                </button>
+                <SpinnerButton onClick={() => handleSubmit()} styles={styles.submit}>
+                  <p>Entrar</p>
+                </SpinnerButton>
               </div>
             </div>
           </form>
@@ -115,19 +118,19 @@ export default function Auth(){
             </div>
             <div className={styles.field}>
               <div className={styles.submitContainer}>
-                <button className={styles.submit} type="submit">
-                  Crear cuenta
-                </button>
+                <SpinnerButton onClick={() => handleSubmit()} styles={styles.submit}>
+                  <p>Crear cuenta</p>
+                </SpinnerButton>
               </div>
             </div>
           </form>
         )}
 
         <div className={styles.socialNetworkButtonsContainer}>
-          <button className={styles.buttonGoogle} onClick={() => getGoogleForm()}>
+          <SpinnerButton onClick={() => getGoogleForm()} styles={styles.buttonGoogle}>
             <img src="/svg/google-icon.svg" alt="Icono" width={25} height={25} /> 
             <p>Entrar con Google</p>
-          </button>
+          </SpinnerButton>
         </div>
         <div className={styles.createAccountContainer}>
           <p onClick={() => setIsLogin(!isLogin)}>
