@@ -1,0 +1,130 @@
+[debug] [2024-12-05T07:12:12.599Z] ----------------------------------------------------------------------
+[debug] [2024-12-05T07:12:12.600Z] Command:       /home/david/.nvm/versions/node/v18.18.0/bin/node /usr/local/bin/firebase deploy
+[debug] [2024-12-05T07:12:12.601Z] CLI Version:   11.29.1
+[debug] [2024-12-05T07:12:12.601Z] Platform:      linux
+[debug] [2024-12-05T07:12:12.601Z] Node Version:  v18.18.0
+[debug] [2024-12-05T07:12:12.602Z] Time:          Thu Dec 05 2024 04:12:12 GMT-0300 (hora de verano de Chile)
+[debug] [2024-12-05T07:12:12.602Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-12-05T07:12:12.664Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-05T07:12:12.665Z] > authorizing via signed-in user (david.aravenap@gmail.com)
+[debug] [2024-12-05T07:12:12.665Z] [iam] checking project inmobiliario-e6a3e for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-12-05T07:12:12.667Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions [none]
+[debug] [2024-12-05T07:12:12.667Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions x-goog-quota-user=projects/inmobiliario-e6a3e
+[debug] [2024-12-05T07:12:12.667Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-12-05T07:12:13.949Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions 200
+[debug] [2024-12-05T07:12:13.949Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-12-05T07:12:13.951Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e [none]
+[debug] [2024-12-05T07:12:14.595Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e 200
+[debug] [2024-12-05T07:12:14.595Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e {"projectId":"inmobiliario-e6a3e","projectNumber":"939157364069","displayName":"inmobiliario","name":"projects/inmobiliario-e6a3e","resources":{"hostingSite":"inmobiliario-e6a3e","storageBucket":"inmobiliario-e6a3e.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_8aff2307-72bf-4c6a-b92d-95cff84fa5e1"}
+[debug] [2024-12-05T07:12:16.037Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites pageToken=&pageSize=10
+[debug] [2024-12-05T07:12:17.997Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites 200
+[debug] [2024-12-05T07:12:17.997Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites {"sites":[{"name":"projects/inmobiliario-e6a3e/sites/inmobiliario-e6a3e","defaultUrl":"https://inmobiliario-e6a3e.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-12-05T07:12:17.998Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites 
+[debug] [2024-12-05T07:12:19.461Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites 200
+[debug] [2024-12-05T07:12:19.461Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites {"sites":[{"name":"projects/inmobiliario-e6a3e/sites/inmobiliario-e6a3e","defaultUrl":"https://inmobiliario-e6a3e.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-12-05T07:12:19.461Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/webApps/-/config [none]
+[debug] [2024-12-05T07:12:20.484Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/webApps/-/config 200
+[debug] [2024-12-05T07:12:20.484Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/webApps/-/config {"projectId":"inmobiliario-e6a3e","appId":"1:939157364069:web:8a2c09a00bc7567ceb558c","storageBucket":"inmobiliario-e6a3e.appspot.com","locationId":"us-central","apiKey":"AIzaSyCMrmPYngPbQdje2gTGmDa8V0w6YTcR7AA","authDomain":"inmobiliario-e6a3e.firebaseapp.com","messagingSenderId":"939157364069"}
+[debug] [2024-12-05T07:12:47.546Z] TypeError: Cannot read properties of null (reading 'endsWith')
+    at ɵcodegenPublicDirectory (/usr/local/lib/node_modules/firebase-tools/lib/frameworks/next/index.js:206:56)
+    at async prepareFrameworks (/usr/local/lib/node_modules/firebase-tools/lib/frameworks/index.js:294:13)
+    at async deploy (/usr/local/lib/node_modules/firebase-tools/lib/deploy/index.js:53:13)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-12-05T07:16:01.885Z] ----------------------------------------------------------------------
+[debug] [2024-12-05T07:16:01.888Z] Command:       /home/david/.nvm/versions/node/v18.18.0/bin/node /usr/local/bin/firebase deploy
+[debug] [2024-12-05T07:16:01.888Z] CLI Version:   11.29.1
+[debug] [2024-12-05T07:16:01.889Z] Platform:      linux
+[debug] [2024-12-05T07:16:01.889Z] Node Version:  v18.18.0
+[debug] [2024-12-05T07:16:01.889Z] Time:          Thu Dec 05 2024 04:16:01 GMT-0300 (hora de verano de Chile)
+[debug] [2024-12-05T07:16:01.890Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-12-05T07:16:01.950Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-05T07:16:01.950Z] > authorizing via signed-in user (david.aravenap@gmail.com)
+[debug] [2024-12-05T07:16:01.950Z] [iam] checking project inmobiliario-e6a3e for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-12-05T07:16:01.952Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions [none]
+[debug] [2024-12-05T07:16:01.952Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions x-goog-quota-user=projects/inmobiliario-e6a3e
+[debug] [2024-12-05T07:16:01.952Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-12-05T07:16:03.071Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions 200
+[debug] [2024-12-05T07:16:03.071Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-12-05T07:16:03.073Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e [none]
+[debug] [2024-12-05T07:16:03.676Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e 200
+[debug] [2024-12-05T07:16:03.677Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e {"projectId":"inmobiliario-e6a3e","projectNumber":"939157364069","displayName":"inmobiliario","name":"projects/inmobiliario-e6a3e","resources":{"hostingSite":"inmobiliario-e6a3e","storageBucket":"inmobiliario-e6a3e.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_8aff2307-72bf-4c6a-b92d-95cff84fa5e1"}
+[debug] [2024-12-05T07:16:05.109Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites pageToken=&pageSize=10
+[debug] [2024-12-05T07:16:06.661Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites 200
+[debug] [2024-12-05T07:16:06.661Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites {"sites":[{"name":"projects/inmobiliario-e6a3e/sites/inmobiliario-e6a3e","defaultUrl":"https://inmobiliario-e6a3e.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-12-05T07:16:06.664Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites 
+[debug] [2024-12-05T07:16:08.180Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites 200
+[debug] [2024-12-05T07:16:08.180Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites {"sites":[{"name":"projects/inmobiliario-e6a3e/sites/inmobiliario-e6a3e","defaultUrl":"https://inmobiliario-e6a3e.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-12-05T07:16:08.181Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/webApps/-/config [none]
+[debug] [2024-12-05T07:16:09.205Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/webApps/-/config 200
+[debug] [2024-12-05T07:16:09.205Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/webApps/-/config {"projectId":"inmobiliario-e6a3e","appId":"1:939157364069:web:8a2c09a00bc7567ceb558c","storageBucket":"inmobiliario-e6a3e.appspot.com","locationId":"us-central","apiKey":"AIzaSyCMrmPYngPbQdje2gTGmDa8V0w6YTcR7AA","authDomain":"inmobiliario-e6a3e.firebaseapp.com","messagingSenderId":"939157364069"}
+[debug] [2024-12-05T07:16:59.540Z] ----------------------------------------------------------------------
+[debug] [2024-12-05T07:16:59.542Z] Command:       /home/david/.nvm/versions/node/v18.18.0/bin/node /usr/local/bin/firebase deploy
+[debug] [2024-12-05T07:16:59.542Z] CLI Version:   11.29.1
+[debug] [2024-12-05T07:16:59.542Z] Platform:      linux
+[debug] [2024-12-05T07:16:59.542Z] Node Version:  v18.18.0
+[debug] [2024-12-05T07:16:59.543Z] Time:          Thu Dec 05 2024 04:16:59 GMT-0300 (hora de verano de Chile)
+[debug] [2024-12-05T07:16:59.543Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-12-05T07:16:59.601Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-05T07:16:59.602Z] > authorizing via signed-in user (david.aravenap@gmail.com)
+[debug] [2024-12-05T07:16:59.602Z] [iam] checking project inmobiliario-e6a3e for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-12-05T07:16:59.604Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions [none]
+[debug] [2024-12-05T07:16:59.604Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions x-goog-quota-user=projects/inmobiliario-e6a3e
+[debug] [2024-12-05T07:16:59.604Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-12-05T07:17:00.808Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions 200
+[debug] [2024-12-05T07:17:00.809Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-12-05T07:17:00.810Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e [none]
+[debug] [2024-12-05T07:17:01.422Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e 200
+[debug] [2024-12-05T07:17:01.422Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e {"projectId":"inmobiliario-e6a3e","projectNumber":"939157364069","displayName":"inmobiliario","name":"projects/inmobiliario-e6a3e","resources":{"hostingSite":"inmobiliario-e6a3e","storageBucket":"inmobiliario-e6a3e.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_8aff2307-72bf-4c6a-b92d-95cff84fa5e1"}
+[debug] [2024-12-05T07:17:02.835Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites pageToken=&pageSize=10
+[debug] [2024-12-05T07:17:04.283Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites 200
+[debug] [2024-12-05T07:17:04.283Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites {"sites":[{"name":"projects/inmobiliario-e6a3e/sites/inmobiliario-e6a3e","defaultUrl":"https://inmobiliario-e6a3e.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-12-05T07:17:04.284Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites 
+[debug] [2024-12-05T07:17:05.925Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites 200
+[debug] [2024-12-05T07:17:05.926Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites {"sites":[{"name":"projects/inmobiliario-e6a3e/sites/inmobiliario-e6a3e","defaultUrl":"https://inmobiliario-e6a3e.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-12-05T07:17:05.927Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/webApps/-/config [none]
+[debug] [2024-12-05T07:17:07.359Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/webApps/-/config 200
+[debug] [2024-12-05T07:17:07.359Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/webApps/-/config {"projectId":"inmobiliario-e6a3e","appId":"1:939157364069:web:8a2c09a00bc7567ceb558c","storageBucket":"inmobiliario-e6a3e.appspot.com","locationId":"us-central","apiKey":"AIzaSyCMrmPYngPbQdje2gTGmDa8V0w6YTcR7AA","authDomain":"inmobiliario-e6a3e.firebaseapp.com","messagingSenderId":"939157364069"}
+[debug] [2024-12-05T07:17:34.341Z] TypeError: Cannot read properties of null (reading 'endsWith')
+    at ɵcodegenPublicDirectory (/usr/local/lib/node_modules/firebase-tools/lib/frameworks/next/index.js:206:56)
+    at async prepareFrameworks (/usr/local/lib/node_modules/firebase-tools/lib/frameworks/index.js:294:13)
+    at async deploy (/usr/local/lib/node_modules/firebase-tools/lib/deploy/index.js:53:13)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-12-05T07:18:36.220Z] ----------------------------------------------------------------------
+[debug] [2024-12-05T07:18:36.222Z] Command:       /home/david/.nvm/versions/node/v18.18.0/bin/node /usr/local/bin/firebase deploy
+[debug] [2024-12-05T07:18:36.223Z] CLI Version:   11.29.1
+[debug] [2024-12-05T07:18:36.223Z] Platform:      linux
+[debug] [2024-12-05T07:18:36.223Z] Node Version:  v18.18.0
+[debug] [2024-12-05T07:18:36.223Z] Time:          Thu Dec 05 2024 04:18:36 GMT-0300 (hora de verano de Chile)
+[debug] [2024-12-05T07:18:36.224Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-12-05T07:18:36.294Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-05T07:18:36.294Z] > authorizing via signed-in user (david.aravenap@gmail.com)
+[debug] [2024-12-05T07:18:36.294Z] [iam] checking project inmobiliario-e6a3e for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-12-05T07:18:36.296Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions [none]
+[debug] [2024-12-05T07:18:36.297Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions x-goog-quota-user=projects/inmobiliario-e6a3e
+[debug] [2024-12-05T07:18:36.297Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-12-05T07:18:37.684Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions 200
+[debug] [2024-12-05T07:18:37.685Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inmobiliario-e6a3e:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-12-05T07:18:37.689Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e [none]
+[debug] [2024-12-05T07:18:38.276Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e 200
+[debug] [2024-12-05T07:18:38.276Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e {"projectId":"inmobiliario-e6a3e","projectNumber":"939157364069","displayName":"inmobiliario","name":"projects/inmobiliario-e6a3e","resources":{"hostingSite":"inmobiliario-e6a3e","storageBucket":"inmobiliario-e6a3e.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_8aff2307-72bf-4c6a-b92d-95cff84fa5e1"}
+[debug] [2024-12-05T07:18:39.973Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites pageToken=&pageSize=10
+[debug] [2024-12-05T07:18:41.961Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites 200
+[debug] [2024-12-05T07:18:41.961Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites {"sites":[{"name":"projects/inmobiliario-e6a3e/sites/inmobiliario-e6a3e","defaultUrl":"https://inmobiliario-e6a3e.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-12-05T07:18:41.964Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites 
+[debug] [2024-12-05T07:18:43.394Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites 200
+[debug] [2024-12-05T07:18:43.395Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/sites {"sites":[{"name":"projects/inmobiliario-e6a3e/sites/inmobiliario-e6a3e","defaultUrl":"https://inmobiliario-e6a3e.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-12-05T07:18:43.396Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/webApps/-/config [none]
+[debug] [2024-12-05T07:18:44.417Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/webApps/-/config 200
+[debug] [2024-12-05T07:18:44.417Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inmobiliario-e6a3e/webApps/-/config {"projectId":"inmobiliario-e6a3e","appId":"1:939157364069:web:8a2c09a00bc7567ceb558c","storageBucket":"inmobiliario-e6a3e.appspot.com","locationId":"us-central","apiKey":"AIzaSyCMrmPYngPbQdje2gTGmDa8V0w6YTcR7AA","authDomain":"inmobiliario-e6a3e.firebaseapp.com","messagingSenderId":"939157364069"}
+[debug] [2024-12-05T07:19:05.465Z] TypeError: Cannot read properties of null (reading 'endsWith')
+    at ɵcodegenPublicDirectory (/usr/local/lib/node_modules/firebase-tools/lib/frameworks/next/index.js:206:56)
+    at async prepareFrameworks (/usr/local/lib/node_modules/firebase-tools/lib/frameworks/index.js:294:13)
+    at async deploy (/usr/local/lib/node_modules/firebase-tools/lib/deploy/index.js:53:13)
+[error] 
+[error] Error: An unexpected error has occurred.

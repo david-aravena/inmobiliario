@@ -35,21 +35,20 @@ export default function Auth(){
 
   // Función para manejar el envío del formulario
   const handleSubmit = (e) => {
-    alert("las cuentas de usuario aun no estan habilitadas")
-    // e.preventDefault();
-    // getInputsForm();
+    e.preventDefault();
+    getInputsForm();
     // Aquí puedes manejar el proceso de login o signup
   };
 
   const getGoogleForm = async () => {
-    alert("las cuentas de usuario aun no estan habilitadas")
-    // try{
-    //   const user = await getGoogleUser();
-    //   router.push('/propiedades')
-    // } catch(error){
-    //   console.log("getGoogleForm: ", error)
-    // } 
+    try{
+      const user = await getGoogleUser();
+      router.push('/propiedades')
+    } catch(error){
+      console.log("getGoogleForm: ", error)
+    } 
   };
+
   return(
     <div className={styles.container}>
       <div className={styles.authContainer}>
