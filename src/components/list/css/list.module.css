@@ -17,7 +17,7 @@
 }
 
 .listContainer {
-  width: auto;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;          /* Permite que los elementos se ajusten a nuevas líneas */

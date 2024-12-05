@@ -9,6 +9,15 @@ const requestDocs = async(request) => {
   return documents
 }
 
+export const getCollection = async (nameCollection, results) => {
+  try{
+    const reference = query(collection(db, nameCollection), limit(results));
+    return await requestDocs(reference)
+  } catch(error){
+    console.log("getCollection: ", error)
+  }
+}
+
 export const findItemId = async (nameCollection, id) => {
   try {
     const q = query(collection(db, nameCollection), where("uid", "==", id), limit(1));
