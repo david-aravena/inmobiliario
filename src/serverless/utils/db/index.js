@@ -6,7 +6,11 @@ const db = getFirestore(app);
 const requestDocs = async(request) => {
   const querySnapshot = await getDocs(request);
   const documents = querySnapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}));
-  return documents
+  if(documents.length === 0){
+    return null
+  } else {
+    return documents    
+  }
 }
 
 export const getCollection = async (nameCollection, results) => {

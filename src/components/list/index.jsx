@@ -23,13 +23,14 @@ export default function List({ getItems, filter, CardUI , ModalUI}) {
   useEffect(() => {
     getItems()
       .then((result) => {
+        console.log(result)
         setItems(result);
       })
       .catch((error) => console.log(error));
   }, []);
 
   useEffect(() => {
-    if (items && items.length === 0) {
+    if (items?.length === 0) {
       alert("No hay resultados encontrados");
       getItems()
         .then((result) => {
