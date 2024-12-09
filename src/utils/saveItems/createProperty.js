@@ -4,7 +4,6 @@ import {createItem} from 'app/serverless/utils/db/'
 export const saveProperty = async(property, images) => {
   const saveImages = async () => {
     const savedImageUrls = await Promise.all(images.map(async (image) => {
-      console.log("image", image)
       const result = await saveImage(image);
       return await getUrlImage(result);
     }));

@@ -4,9 +4,9 @@ import CreateProperty from './components/createProperty/CreateProperty'
 import List from 'app/components/list/'
 import Filter from 'app/components/filter/'
 import CardPropertyUI from 'app/components/cardUI/CardPropertyUI'
-import ModalProperty from 'app/components/modal/properties/ModalPropertyUI'
+import EditModalProperty from 'app/components/modal/properties/EditModalProperty'
 import {getUserItems} from 'app/serverless/utils/db/'
-import {saveProperty} from './utils/createProperty'
+import {saveProperty} from 'app/utils/saveItems/createProperty'
 import useAuth from 'app/utils/user/useAuth';
 
 export default function Properties(){
@@ -51,7 +51,7 @@ export default function Properties(){
                 getItems={() => getUserItems("properties", session.uid)}
                 filter={(styles, setResult) => <Filter styles={styles} setResult={(result) => setResult(result) } obj={obj} />}
                 CardUI={CardPropertyUI}
-                ModalUI={ModalProperty} 
+                ModalUI={EditModalProperty} 
               />
             </>
           }

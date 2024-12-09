@@ -1,4 +1,4 @@
-import { getFirestore, collection, getDocs, query, limit, where, addDoc } from "firebase/firestore";
+import { getFirestore, collection, getDocs, query, limit, where, addDoc, doc, updateDoc, arrayRemove } from "firebase/firestore";
 import app from 'app/serverless/config'
 
 const db = getFirestore(app);
@@ -82,3 +82,33 @@ export const createItem = async(nameCollection, obj) => {
     console.error("Error adding document: ", e.message);
   }
 }
+
+export const deleteFileUrl = async (propertyId, fileUrl) => {
+  try {
+    // Obtener la referencia al documento en la colección `properties`
+    const propertyRef = doc(db, "properties", propertyId);
+
+    // Actualizar el campo `images` eliminando la URL del archivo
+    await updateDoc(propertyRef, {
+      images: arrayRemove(fileUrl)  // Elimina la URL específica del array
+    });
+
+    console.log("URL eliminada de Firestore.");
+  } catch (error) {
+    console.error("Error al eliminar la URL de Firestore:", error.message);
+  }
+};
+
+export const updateImages = async (newImages, id) => {
+  try {
+    const docRef = doc(db, "properties", id);
+    await updateDoc(docRef, {
+      images: newImages, // Reemplaza el array actual por el nuevo array
+    });
+
+    alert("Imágenes actualizadas correctamente!");
+  } catch (error) {
+    console.error("Error al actualizar las imágenes:", error.message);
+    alert("Hubo un error al actualizar las imágenes.");
+  }
+};
