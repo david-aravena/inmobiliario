@@ -146,3 +146,15 @@ export const updateImages = async (newImages, id) => {
     alert("Hubo un error al actualizar las imágenes.");
   }
 };
+
+export const updateClientData = async (attributes, id) => {
+  try {
+    const docRef = doc(db, "clients", id);
+    await updateDoc(docRef, attributes);
+
+    alert("Datoss actualizados correctamente!");
+  } catch (error) {
+    console.error("Error al actualizar los datos:", error.message);
+    alert("Hubo un error al actualizar los datos.");
+  }
+};

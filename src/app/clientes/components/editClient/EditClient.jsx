@@ -1,5 +1,5 @@
 import {deleteFile} from 'app/serverless/utils/storage/'
-import {deleteFileClient} from 'app/serverless/utils/db/'
+import {deleteFileClient, updateClientData} from 'app/serverless/utils/db/'
 import styles from './modalClients.module.css'
 
 export default function EditClient({itemSelected, setItemSelected}){
@@ -16,6 +16,11 @@ export default function EditClient({itemSelected, setItemSelected}){
       alert("Eliminación cancelada");
     }
   }
+
+  const getNewClientData = () => {
+    const {files, ...newDataWithoutFiles} = itemSelected 
+    updateClientData(newDataWithoutFiles, itemSelected.id)
+  } 
 
   return(
     <>
@@ -49,22 +54,26 @@ export default function EditClient({itemSelected, setItemSelected}){
 
           <div className={styles.detailsContainer}>
             <div className={styles.descriptionContainer}>
-              <p>Nombre: {itemSelected.name}</p>
+              <p>Nombre: <input type="text" name="name" value={itemSelected.name} onChange={(e) => setItemSelected({...itemSelected, [e.target.name]: e.target.value})} /></p>
             </div>
             <div className={styles.descriptionContainer}>
-              <p>Tipo: {itemSelected.type}</p>
+              <p>Tipo: <input type="text" name="type" value={itemSelected.type} onChange={(e) => setItemSelected({...itemSelected, [e.target.name]: e.target.value})} /></p>
             </div>
             <div className={styles.descriptionContainer}>
-              <p>Email: {itemSelected.email}</p>
+              <p>Email: <input type="text" name="email" value={itemSelected.email} onChange={(e) => setItemSelected({...itemSelected, [e.target.name]: e.target.value})} /></p>
             </div>
             <div className={styles.descriptionContainer}>
-              <p>Fono: {itemSelected.phone}</p>
+              <p>Fono: <input type="text" name="phone" value={itemSelected.phone} onChange={(e) => setItemSelected({...itemSelected, [e.target.name]: e.target.value})} /></p>
             </div>
             <div className={styles.descriptionContainer}>
-              <p>Ubicacion: {itemSelected.ubication}</p>
+              <p>Ubicacion: <input type="text" name="ubication" value={itemSelected.ubication} onChange={(e) => setItemSelected({...itemSelected, [e.target.name]: e.target.value})} /></p>
             </div>
             <div className={styles.descriptionContainer}>
-              <p>{itemSelected.comments}</p>
+              <p>Descripción</p>
+              <textarea cols="40" rows="10" name="comments" value={itemSelected.comments} onChange={(e) => setItemSelected({...itemSelected, [e.target.name]: e.target.value})} />
+            </div>
+            <div>
+              <button onClick={() => getNewClientData()}>Actualizar Datos</button>
             </div>
           </div>
         </div>
