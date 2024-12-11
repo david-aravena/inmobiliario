@@ -1,0 +1,136 @@
+.showContainer{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+  overflow: auto;
+}
+
+.infoContainer{
+  display: flex; 
+  width:100%;
+  height: 100%;
+  padding: 3rem;
+}
+
+.imagesContainer{
+  width:60%; 
+  height:100%;
+}
+
+.imageSelectedContainer{
+  width: 100%;
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  background-color: #EDEEF2;
+}
+
+.detailsContainer{
+  width: 40%;
+  padding: 0 1rem;
+}
+
+.descriptionContainer{
+  padding: 1rem 0;
+  font-family: var(--font-montserrat-bold), sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+.ufContainer{
+  padding: 1rem 0;
+  font-size: 31px;
+  font-family: var(--font-montserrat-regular), sans-serif;
+  font-weight: 900;
+}
+
+.priceContainer{
+  padding-bottom: 1rem;
+  font-size: 20px;
+  font-family: var(--font-montserrat-regular), sans-serif;
+  font-weight: 400;
+}
+
+.roomsBathsPark{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  font-family: var(--font-montserrat-regular), sans-serif;
+  font-weight: 400;
+}
+
+.timeStampContainer{
+  font-family: var(--font-montserrat-regular), sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.buttonContact{
+  border: none;
+  width: 100%;
+  background-color: #9E005D;
+  color: white;
+  font-family: var(--font-montserrat-semi-bold), sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  padding: 8px 0;
+  border-radius: 8px;
+}
+
+
+@media (max-width: 1000px) {
+  .imagesContainer{
+    width: 100%;
+    height: 50%;
+  }
+  
+  .infoContainer{
+    width: 100%;
+    padding: 0 2rem
+  }
+  
+  .detailsContainer{
+    width: 100%;
+    height: 50%;
+    padding: 1rem 0;
+  }
+  
+  .showContainer{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(245, 245, 250);
+    padding: 0;
+  }
+  
+  .imageSelectedContainer{
+    height: 70%
+  }
+
+  .showContainer{
+    position: fixed;
+    width: 100vw;
+  }
+
+  .infoContainer{
+    flex-direction: column;
+  }
+
+  .roomsBathsPark{
+    justify-content: space-between;
+  }
+
+  .buttonContact{
+    padding: 16px 0;
+  }
+}
+

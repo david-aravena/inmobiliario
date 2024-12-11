@@ -1,12 +1,18 @@
+import { usePathname } from 'next/navigation';
 import styles from './modalProperties.module.css'
 
 export default function ModalClientsUI({itemSelected, setItemSelected}){
+
+  const pathname = usePathname();
+
   return(
     <>
       <div className={styles.showContainer}>
-        <div style={{padding: "0 1rem", display:"flex", justifyContent:"flex-end", padding:"1rem 0"}}>
-          <button onClick={() => setItemSelected(null)}>Volver al Home</button>
-        </div>
+        {pathname === "/" && (
+          <div style={{padding: "0 1rem", display:"flex", justifyContent:"flex-end", padding:"1rem 0"}}>
+            <button onClick={() => setItemSelected(null)}>Volver al Home</button>
+          </div>
+        )}
         <div className={styles.infoContainer}>
           <div className={styles.imagesContainer}>
             {itemSelected.files.map((item, index) => (

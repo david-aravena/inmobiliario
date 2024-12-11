@@ -1,4 +1,4 @@
-import { getFirestore, collection, getDocs, query, limit, where, addDoc, doc, updateDoc, arrayRemove } from "firebase/firestore";
+import { getFirestore, collection, getDocs, getDoc, query, limit, where, addDoc, doc, updateDoc, arrayRemove } from "firebase/firestore";
 import app from 'app/serverless/config'
 
 const db = getFirestore(app);
@@ -97,6 +97,41 @@ export const deleteFileUrl = async (propertyId, fileUrl) => {
     console.error("Error al eliminar la URL de Firestore:", error.message);
   }
 };
+
+export const deleteFileClient = async (id, fileUrl) => {
+  try {
+    // Obtener la referencia al documento en la colección `clients`
+    const propertyRef = doc(db, "clients", id);
+
+    // Obtener el documento actual para poder trabajar con el array `files`
+    const docSnapshot = await getDoc(propertyRef);
+
+    // Verificar si el documento existe
+    if (docSnapshot.exists()) {
+      // Obtener el array `files` del documento
+      const filesArray = docSnapshot.data().files;
+
+      // Buscar el objeto que contiene la URL que coincide con `fileUrl`
+      const fileToRemove = filesArray.find(file => file.url === fileUrl);
+
+      if (fileToRemove) {
+        // Eliminar el objeto que contiene la URL
+        await updateDoc(propertyRef, {
+          files: arrayRemove(fileToRemove)  // Elimina el objeto completo que contiene la URL
+        });
+
+        console.log("Archivo eliminado de Firestore.");
+      } else {
+        console.log("No se encontró el archivo con la URL proporcionada.");
+      }
+    } else {
+      console.log("El documento no existe.");
+    }
+  } catch (error) {
+    console.error("Error al eliminar el archivo de Firestore:", error.message);
+  }
+};
+
 
 export const updateImages = async (newImages, id) => {
   try {

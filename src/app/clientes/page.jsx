@@ -6,7 +6,7 @@ import useAuth from 'app/utils/user/useAuth'
 import {getUserItems} from 'app/serverless/utils/db/'
 import CardClientUI from 'app/components/cardUI/CardClientUI'
 import FilterClient from 'app/components/filter/FilterClient'
-import ModalClientsUI from 'app/modal/ModalClientsUI'
+import EditClient from 'app/app/clientes/components/editClient/EditClient'
 import {saveItemsWithFiles} from './utils/saveItemsWithFiles'
 
 export default function Clients(){
@@ -47,7 +47,7 @@ export default function Clients(){
                 getItems={() => getUserItems("clients", session.uid)}
                 filter={(styles, setResult) => <FilterClient styles={styles} setResult={(result) => setResult(result) } obj={obj} />}
                 CardUI={CardClientUI}
-                ModalUI={ModalClientsUI} 
+                ModalUI={EditClient} 
               />
             </>
           }
