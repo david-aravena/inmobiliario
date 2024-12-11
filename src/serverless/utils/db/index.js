@@ -73,7 +73,6 @@ export const getUserItems = async(nameCollection, id) => {
 
 
 export const createItem = async(nameCollection, obj) => {
-  console.log("obj2: ", obj)
   try {
     const docRef = await addDoc(collection(db, nameCollection), obj);
     console.log("create item: ", docRef)
