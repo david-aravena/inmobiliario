@@ -4,7 +4,7 @@ import Image from 'next/image'
 import styles from './css/list.module.css'
 
 
-export default function List({ getItems, filter, CardUI , ModalUI}) {
+export default function List({ getItems, filter, CardUI , ModalUI, createItem}) {
   const [items, setItems] = useState(null);
   const [itemSelected, setItemSelected] = useState(null);
  
@@ -43,6 +43,7 @@ export default function List({ getItems, filter, CardUI , ModalUI}) {
   return (
     <>
       <div className={styles.filterContainer}>
+        {createItem}
         {handleFilter(styles)}
       </div>
       {items ? (

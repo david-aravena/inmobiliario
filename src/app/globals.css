@@ -7,3 +7,12 @@
 a{
   text-decoration: none;
 }
+
+.button{
+  background: #9E005D;
+  border: none;
+  padding: 10px 1.5rem;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  color: white
+}

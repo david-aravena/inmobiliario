@@ -5,7 +5,7 @@ import ModalProperty from "app/components/modal/properties/ModalPropertyUI";
 // import styles from "./createProperty.module.css";
 import styles from 'app/components/list/css/list.module.css'
 
-export default function CreateProperty({ submit }) {
+export default function CreateProperty({ submit, buttonBack }) {
   const [isMakePreview, setIsMakePreview] = useState(true);
   const [item, setItem] = useState({
     price: "",
@@ -52,33 +52,39 @@ export default function CreateProperty({ submit }) {
   };
 
   return (
+    <>
     <div className={styles.createPropertyContainer}>
+      <div>
+        {buttonBack}
+      </div>
       <div className={styles.formCreatePropertyContainer}>
         <form onSubmit={handleSubmit}>
           {isMakePreview ? (
             <>
               <div className={styles.field}>
                 <div className={styles.labelContainer}>
-                  <label>Valor</label>
+                  <img src="/svg/formCreateProperty/money.svg" /> <label>Valor</label>
                 </div>
                 <div className={styles.inputContainer}>
                   <input
                     type="text"
                     name="price"
                     value={item.price}
+                    placeholder="ingrese valor aqui"
                     onChange={(e) => getInputValue(e)}
                   />
                 </div>
               </div>
               <div className={styles.field}>
                 <div className={styles.labelContainer}>
-                  <label>Ubicacion</label>
+                  <img src="/svg/formCreateProperty/ubication.svg" />  <label>Ubicacion</label>
                 </div>
                 <div className={styles.inputContainer}>
                   <input
                     type="text"
                     name="ubication"
                     value={item.ubication}
+                    placeholder="ingrese ubicacion aqui"
                     onChange={(e) => getInputValue(e)}
                   />
                 </div>
@@ -121,6 +127,7 @@ export default function CreateProperty({ submit }) {
                     type="text"
                     name="mts"
                     value={item.mts}
+                    placeholder="ingrese cantidad aqui"
                     onChange={(e) => getInputValue(e)}
                   />
                 </div>
@@ -134,6 +141,7 @@ export default function CreateProperty({ submit }) {
                     type="text"
                     name="bedRooms"
                     value={item.bedRooms}
+                    placeholder="ingrese cantidad aqui"
                     onChange={(e) => getInputValue(e)}
                   />
                 </div>
@@ -147,6 +155,7 @@ export default function CreateProperty({ submit }) {
                     type="text"
                     name="bathrooms"
                     value={item.bathrooms}
+                    placeholder="ingrese cantidad aqui"
                     onChange={(e) => getInputValue(e)}
                   />
                 </div>
@@ -160,6 +169,7 @@ export default function CreateProperty({ submit }) {
                     type="text"
                     name="parking"
                     value={item.parking}
+                    placeholder="ingrese cantidad aqui"
                     onChange={(e) => getInputValue(e)}
                   />
                 </div>
@@ -247,5 +257,6 @@ export default function CreateProperty({ submit }) {
         )}
       </div>
     </div>
+    </>
   );
 }

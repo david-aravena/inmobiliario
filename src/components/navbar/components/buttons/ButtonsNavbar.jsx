@@ -23,12 +23,12 @@ export default function ButtonsNavbar({styles}){
 
   if(user){
     return(
-      <div style={{height:"100%"}}>
+      <div className={styles.logoffContainer}>
         <div>
-          <button onClick={() => {
+          <p onClick={() => {
             logoutUser()
               .then(() => router.push('/'))
-          }}>Cerrar sesion</button>
+          }}>Cerrar sesion</p>
         </div>
       </div>
     )

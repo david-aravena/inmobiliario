@@ -31,7 +31,7 @@
   
 }
 
-.publishPropertyContainer{
+.publishPropertyContainer, .logoffContainer{
   background-color: #ffd35a;
   margin: auto 0;
   padding: 0 6px;
@@ -42,7 +42,7 @@
   border-radius: 8px
 }
 
-.publishPropertyContainer p{
+.publishPropertyContainer p, .logoffContainer p{
   display: block;
   color: black;
   font-family: var(--font-montserrat-regular), sans-serif;

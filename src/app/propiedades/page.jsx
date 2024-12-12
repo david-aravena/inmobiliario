@@ -34,24 +34,21 @@ export default function Properties(){
   }, [user])
 
   return(
-    <>
+    <div style={{maxWidth:"1440px", height: "calc(100vh - 117px)", margin:"auto"}}>
       {session ?
         <>
           {isCreateProperty ?
             <>
-              <button onClick={() => setIsCreateProperty(false)}>Lista de propiedades</button>
-              <CreateProperty submit={(data) => getNewProperty(data)} />
+              <CreateProperty submit={(data) => getNewProperty(data)} buttonBack={<button className="button" onClick={() => setIsCreateProperty(false)}>Lista de propiedades</button>} />
             </>
           :
             <>
-              <div>
-                <button onClick={() => setIsCreateProperty(true)}>Crear propiedad</button>
-              </div>
               <List 
                 getItems={() => getUserItems("properties", session.uid)}
                 filter={(styles, setResult) => <Filter styles={styles} setResult={(result) => setResult(result) } obj={obj} />}
                 CardUI={CardPropertyUI}
-                ModalUI={EditModalProperty} 
+                ModalUI={EditModalProperty}
+                createItem={<button className="button" onClick={() => setIsCreateProperty(true)}>Crear propiedad</button>} 
               />
             </>
           }
@@ -59,6 +56,6 @@ export default function Properties(){
       :
         <p>No hay respuesta del servidor</p>
       }
-    </>
+    </div>
   )
 }
