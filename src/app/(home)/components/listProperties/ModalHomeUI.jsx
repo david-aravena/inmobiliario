@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import SpinnerButton from 'app/components/buttonSpinner/'
+import {createItem} from 'app/serverless/utils/db/'
 import styles from './modalHome.module.css'
 
 // function tiempoTranscurrido(timestamp) {
@@ -25,6 +27,20 @@ import styles from './modalHome.module.css'
 export default function Modal({itemSelected, setItemSelected, children}){
 
   const [isContact, setIsContact] = useState(false);
+
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const phoneRef = useRef(null);
+  const messageRef = useRef(null)
+
+  const getInputsValues = async () => {
+    const name = nameRef.current.value;
+    const email = emailRef.current.value;
+    const phone = phoneRef.current.value;
+    const message = messageRef.current.value;
+    await createItem("messages", {name, email, phone, message, id: itemSelected.id })
+    alert("Mensaje enviado. Sera contactado por el corredor")
+  }
 
   return(
       <div className={styles.showContainer}>
@@ -69,22 +85,24 @@ export default function Modal({itemSelected, setItemSelected, children}){
                 <button className={styles.buttonContact} onClick={() => setIsContact(false)}>Ver descripción</button>
                 <div className={styles.inputContactContainer}>
                   <label>Nombre</label>
-                  <input type="text" className={styles.inputContact} />
+                  <input type="text" className={styles.inputContact} ref={nameRef} />
                 </div>
                 <div className={styles.inputContactContainer}>
                   <label>Email</label>
-                  <input type="text" className={styles.inputContact} />
+                  <input type="text" className={styles.inputContact} ref={emailRef} />
                 </div>
                 <div className={styles.inputContactContainer}>
                   <label>Fono</label>
-                  <input type="text" className={styles.inputContact} />
+                  <input type="text" className={styles.inputContact} ref={phoneRef} />
                 </div>
                 <div className={styles.inputContactContainer}>
                   <label>Mensaje</label>
-                  <textarea className={styles.inputContact} rows="4" cols="50"> </textarea>
+                  <textarea className={styles.inputContact} rows="4" cols="50" ref={messageRef} > </textarea>
                 </div>
                 <div>
-                  <button className={styles.buttonSendMessage} onClick={() => alert("mensaje enviado. Se te notificara cuando recibas una respuesta")}>Enviar</button>
+                  <SpinnerButton onClick={() => getInputsValues()} styles={styles.buttonSendMessage}>
+                    <p>Enviar</p>
+                  </SpinnerButton>
                 </div>
               </div>
             :
