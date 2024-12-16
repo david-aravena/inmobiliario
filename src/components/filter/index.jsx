@@ -1,6 +1,7 @@
 "use client"
 import { useState } from 'react';
 import {filterItems} from 'app/serverless/utils/db/'
+import SpinnerButton from 'app/components/buttonSpinner/'
 
 const Filter = ({setResult, styles, obj}) => {
     const [filters, setFilters] = useState(obj);
@@ -13,8 +14,7 @@ const Filter = ({setResult, styles, obj}) => {
         }));
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = () => {
         if (Object.values(filters).some(filter => filter)) {
             filterItems(filters)
                 .then((result) => {
@@ -28,7 +28,7 @@ const Filter = ({setResult, styles, obj}) => {
 
     return (
         <div className={styles.filter}>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <input
                     type="text"
                     name="ubication"
@@ -55,7 +55,9 @@ const Filter = ({setResult, styles, obj}) => {
                     <option value="nuevo">Nuevo</option>
                     <option value="usado">Usado</option>
                 </select>
-                <button className={styles.buttonSubmit} type="submit">Buscar</button>
+                <SpinnerButton onClick={() => handleSubmit()} styles={styles.buttonSubmit}>
+                    <p>Buscar</p>
+                </SpinnerButton>
             </form>
         </div>
     );
