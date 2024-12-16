@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import Navbar from 'app/components/navbar/'
 import Image from 'next/image'
+import Navbar from 'app/components/navbar/'
+import Loading from 'app/components/loading/'
 import styles from './css/list.module.css'
 
 
@@ -80,7 +81,9 @@ export default function List({ getItems, filter, CardUI , ModalUI, createItem}) 
           
         </>
       ) : (
-        <h2>No se encontraron propiedades.</h2>
+        <div style={{position:"absolute", top:0, left:0, width:"100vw", height:"100vh", backdropFilter: "blur(10px)"}}>
+          <Loading />
+        </div>
       )}
     </>
   );

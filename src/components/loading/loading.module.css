@@ -1,0 +1,22 @@
+.loading {
+  width: 250px;
+  height: 250px;
+  background-image: url('/sprites/logo.png'); /* Asegúrate de que la ruta sea correcta */
+  background-position: 0 0; /* Comienza desde el principio */
+  background-size: 250px 7500px; /* Tamaño total del sprite */
+  background-repeat: no-repeat;
+  position: fixed; /* Fijamos la posición en la pantalla */
+  top: 50%; /* Centra el contenedor verticalmente */
+  left: 50%; /* Centra el contenedor horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta la posición para centrar perfectamente */
+  animation: slide 2s steps(30) infinite; /* Animación con pasos para cambiar entre imágenes */
+}
+
+@keyframes slide {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -7500px;
+  }
+}
