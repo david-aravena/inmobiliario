@@ -143,6 +143,22 @@
   border: none;
 }
 
+.buttonBackHome{
+  background: #9E005D;
+  padding: 4px 10px;
+  border-radius: 5px;
+  border: none;
+  color: #FFF;
+  font-size: 16px;
+}
+
+.containerButtonBackHome{
+  padding: 0 1rem; 
+  display: flex;
+  justify-content: flex-start;
+  padding: 1rem 3rem
+}
+
 
 @media (max-width: 1000px) {
   .imagesContainer{
@@ -191,6 +207,18 @@
 
   .buttonContact{
     padding: 16px 0;
+  }
+
+  .contactContainer{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+  }
+
+  .containerButtonBackHome{
+    padding: 1rem 2rem
   }
 }
 

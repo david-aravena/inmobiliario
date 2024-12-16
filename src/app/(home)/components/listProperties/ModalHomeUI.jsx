@@ -39,14 +39,14 @@ export default function Modal({itemSelected, setItemSelected, children}){
     const phone = phoneRef.current.value;
     const message = messageRef.current.value;
     await createItem("messages", {name, email, phone, message, id: itemSelected.id })
-    alert("Mensaje enviado. Sera contactado por el corredor")
+    alert("Mensaje enviado. Seras contactado por el corredor")
   }
 
   return(
       <div className={styles.showContainer}>
         {children}
-        <div style={{padding: "0 1rem", display:"flex", justifyContent:"flex-end", padding:"1rem 0"}}>
-          <button onClick={() => setItemSelected(null)}>Volver al Home</button>
+        <div className={styles.containerButtonBackHome}>
+          <button className={styles.buttonBackHome} onClick={() => setItemSelected(null)}>Volver al Home</button>
         </div>
         <div className={styles.infoContainer}>
           <div className={styles.imagesContainer}>
@@ -97,7 +97,7 @@ export default function Modal({itemSelected, setItemSelected, children}){
                 </div>
                 <div className={styles.inputContactContainer}>
                   <label>Mensaje</label>
-                  <textarea className={styles.inputContact} rows="4" cols="50" ref={messageRef} > </textarea>
+                  <textarea className={styles.inputContact} rows="4" cols="50" ref={messageRef} defaultValue="" />
                 </div>
                 <div>
                   <SpinnerButton onClick={() => getInputsValues()} styles={styles.buttonSendMessage}>

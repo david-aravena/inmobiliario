@@ -1,14 +1,24 @@
-.createPropertyContainer{ 
+.createPropertyContainerPreview{ 
   width: 100%;
   height: 100%;
   display: flex;
+  background-color: #F5F5F9;
+  padding: 1rem;
+}
+
+.createPropertyContainerDetails{ 
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #F5F5F9;
+  padding: 1rem;
 }
 
 .formCreatePropertyContainer, .previewNewProperty{ 
-  width: 50%;
+  width: 100%;
   display: flex; 
   justify-content: center;
-  height: 50%;
 }
 
 .filterContainer{
@@ -36,6 +46,7 @@
   user-select: none; /* Desactiva la selección de texto */
   color: #1b1464;
   margin: 1rem 10px;
+  box-shadow: 0px 8px 8px 0px rgba(30, 30, 30, 0.15);
 }
 
 .imageContainer {
@@ -113,22 +124,88 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  border-bottom: 1px solid #000;
 }
 
 .inputContainer input{
   border: none;
+  background: none;
+  border-bottom: 2px solid #9E005D;
   width: 100%;
 }
 
-.inputContainer select{
+/* .inputContainer select{
   border: none;
   width: 100%;
-}
+} */
 
 .field{
-  margin-bottom: 1rem;
+  margin-bottom: 8px;
 }
+
+.radioGroup{
+  display: flex;
+}
+
+.containerLabelRadioButton{
+  color: #000;
+  font-family: var(--font-montserrat-regular), sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.stepNavigation {
+  display: flex;
+  justify-content: space-between; /* Asegura que los elementos estén a los extremos */
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1rem 1rem 0;
+}
+
+.stepText {
+  color: #000;
+  font-family: var(--font-montserrat-regular), sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  flex: 1; /* El texto ocupará el espacio disponible a la izquierda */
+}
+
+.stepButtonContainer {
+  display: flex;
+  justify-content: flex-end; /* El botón estará alineado a la derecha */
+}
+
+.stepButton {
+  background-color: #9E005D;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.stepButton:hover {
+  background-color: #1b1464;
+}
+
+.stepButtonText {
+  font-size: 1.5rem;
+}
+
+
+
+
+
+
 
 
 
@@ -142,8 +219,9 @@
 
   .filterContainer{
     display: flex;
-    justify-content: center;
-    width: 100%;
+    flex-direction: column;
+
+    padding: 1rem;
   }
 
   .filter{
@@ -154,20 +232,26 @@
     justify-content: center;
   }
 
-  .createPropertyContainer{ 
+  .createPropertyContainerPreview{ 
     flex-direction: column;
     height: 100%;
   }
 
+  /* .createPropertyContainerPreview{ 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: #F5F5F9;
+    padding: 1rem;
+  } */
+
   .previewNewProperty{ 
     width: 100%;
-    height: 70%;
     overflow: scroll;
   }
 
   .formCreatePropertyContainer{
     width: 100%;
-    height: 30%;
     overflow: scroll;
   }
 }

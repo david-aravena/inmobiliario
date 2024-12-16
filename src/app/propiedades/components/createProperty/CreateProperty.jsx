@@ -3,7 +3,7 @@ import Image from "next/image";
 import CardPropertyUI from "app/components/cardUI/CardPropertyUI";
 import ModalProperty from "app/components/modal/properties/ModalPropertyUI";
 // import styles from "./createProperty.module.css";
-import styles from 'app/components/list/css/list.module.css'
+import styles from 'app/components/list/css/list.module.css';
 
 export default function CreateProperty({ submit, buttonBack }) {
   const [isMakePreview, setIsMakePreview] = useState(true);
@@ -52,211 +52,287 @@ export default function CreateProperty({ submit, buttonBack }) {
   };
 
   return (
-    <>
-    <div className={styles.createPropertyContainer}>
-      <div>
+    <div style={{ padding: "0 1rem" }}>
+      <div style={{ padding: "1rem 0" }}>
         {buttonBack}
       </div>
-      <div className={styles.formCreatePropertyContainer}>
-        <form onSubmit={handleSubmit}>
-          {isMakePreview ? (
-            <>
-              <div className={styles.field}>
-                <div className={styles.labelContainer}>
-                  <img src="/svg/formCreateProperty/money.svg" /> <label>Valor</label>
-                </div>
-                <div className={styles.inputContainer}>
-                  <input
-                    type="text"
-                    name="price"
-                    value={item.price}
-                    placeholder="ingrese valor aqui"
-                    onChange={(e) => getInputValue(e)}
-                  />
-                </div>
+      <div className={isMakePreview ? styles.createPropertyContainerPreview : styles.createPropertyContainerDetails}>
+        <div className={styles.formCreatePropertyContainer}>
+          <form onSubmit={handleSubmit}>
+            <div className={styles.stepNavigation}>
+              <div className={styles.stepText}>
+                Paso {isMakePreview ? "01" : "02"} de 02
               </div>
-              <div className={styles.field}>
-                <div className={styles.labelContainer}>
-                  <img src="/svg/formCreateProperty/ubication.svg" />  <label>Ubicacion</label>
-                </div>
-                <div className={styles.inputContainer}>
-                  <input
-                    type="text"
-                    name="ubication"
-                    value={item.ubication}
-                    placeholder="ingrese ubicacion aqui"
-                    onChange={(e) => getInputValue(e)}
-                  />
-                </div>
+              <div className={styles.stepButtonContainer}>
+                <button
+                  type="button"
+                  onClick={() => setIsMakePreview(!isMakePreview)}
+                  className={styles.stepButton}
+                >
+                  <span className="stepButtonText">
+                    {isMakePreview ? ">" : "<"}
+                  </span>
+                </button>
               </div>
-              <div className={styles.field}>
-                <div className={styles.labelContainer}>
-                  <label htmlFor="propertyType">Tipo</label>
-                </div>
-                <div className={styles.inputContainer}>
-                  <select
-                    name="type"
-                    id="propertyType"
-                    value={item.type}
-                    onChange={(e) => getInputValue(e)}
-                  >
-                    <option value="casa">Casa</option>
-                    <option value="departamento">Departamento</option>
-                    <option value="oficina">Oficina</option>
-                    <option value="terreno">Terreno</option>
-                  </select>
-                </div>
-              </div>
-              <div className={styles.field}>
-                <div className={styles.labelContainer}>
-                  <label htmlFor="state">Estado</label>
-                </div>
-                <div className={styles.inputContainer}>
-                  <select name="state" value={item.state} onChange={(e) => getInputValue(e)}>
-                    <option value="venta">Venta</option>
-                    <option value="arriendo">Arriendo</option>
-                  </select>
-                </div>
-              </div>
-              <div className={styles.field}>
-                <div className={styles.labelContainer}>
-                  <label>Metros cuadrados</label>
-                </div>
-                <div className={styles.inputContainer}>
-                  <input
-                    type="text"
-                    name="mts"
-                    value={item.mts}
-                    placeholder="ingrese cantidad aqui"
-                    onChange={(e) => getInputValue(e)}
-                  />
-                </div>
-              </div>
-              <div className={styles.field}>
-                <div className={styles.labelContainer}>
-                  <label>Habitaciones</label>
-                </div>
-                <div className={styles.inputContainer}>
-                  <input
-                    type="text"
-                    name="bedRooms"
-                    value={item.bedRooms}
-                    placeholder="ingrese cantidad aqui"
-                    onChange={(e) => getInputValue(e)}
-                  />
-                </div>
-              </div>
-              <div className={styles.field}>
-                <div className={styles.labelContainer}>
-                  <label>Baños</label>
-                </div>
-                <div className={styles.inputContainer}>
-                  <input
-                    type="text"
-                    name="bathrooms"
-                    value={item.bathrooms}
-                    placeholder="ingrese cantidad aqui"
-                    onChange={(e) => getInputValue(e)}
-                  />
-                </div>
-              </div>
-              <div className={styles.field}>
-                <div className={styles.labelContainer}>
-                  <label>Estacionamientos</label>
-                </div>
-                <div className={styles.inputContainer}>
-                  <input
-                    type="text"
-                    name="parking"
-                    value={item.parking}
-                    placeholder="ingrese cantidad aqui"
-                    onChange={(e) => getInputValue(e)}
-                  />
-                </div>
-              </div>
-              <div className={styles.field}>
-                <div className={styles.labelContainer}>
-                  <label>Vista previa</label>
-                </div>
-                <div className={styles.inputContainer}>
-                  <input
-                    type="file"
-                    name="image"
-                    onChange={(e) => getInputValue(e)}
-                  />
-                </div>
-              </div>
-            </>
-          ) : (
-            <>
-              <div className={styles.field}>
-                <div className={styles.labelContainer}>
-                  <label>Mas imagenes</label>
-                </div>
-                <div className={styles.inputContainer}>
-                  <input
-                    type="file"
-                    name="images"
-                    multiple
-                    onChange={(e) => getInputValue(e)}
-                  />
-                </div>
-              </div>
-              <div className={styles.field}>
-                <div className={styles.labelContainer}>
-                  <label>Descripcion</label>
-                </div>
-                <div className={styles.inputContainer}>
-                  <textarea
-                    name="description"
-                    rows="4"
-                    cols="50"
-                    onChange={(e) => getInputValue(e)}
-                    value={item.description}
-                  />
-                </div>
-              </div>
-              <div className={styles.field}>
-                <div className={styles.inputContainer}>
-                  <input type="submit" value="crear propiedad" />
-                </div>
-              </div>
-            </>
-          )}
-          <div className={styles.field}>
-            <div className={styles.inputContainer}>
-              <button
-                type="button"
-                onClick={() => setIsMakePreview(!isMakePreview)}
-              >
-                Siguiente
-              </button>
             </div>
-          </div>
-        </form>
-      </div>
-      <div className={styles.previewNewProperty}>
-        {isMakePreview ? (
-          <CardPropertyUI styles={styles} item={item}>
-            {item.imagePreview ? (
-              <Image
-                src={item.imagePreview}
-                alt="Vista previa"
-                layout="fill"
-                objectFit="cover"
-              />
+
+
+
+
+
+            {isMakePreview ? (
+              <>
+                <div className={styles.field}>
+                  <div className="containerLabel">
+                    <label>Valor</label>
+                  </div>
+                  <div className={styles.inputContainer}>
+                    <input
+                      type="text"
+                      name="price"
+                      value={item.price}
+                      onChange={(e) => getInputValue(e)}
+                      className="input"
+                    />
+                  </div>
+                </div>
+
+                <div className={styles.field}>
+                  <div className="containerLabel">
+                    <label>Ubicacion</label>
+                  </div>
+                  <div className={styles.inputContainer}>
+                    <input
+                      type="text"
+                      name="ubication"
+                      value={item.ubication}
+                      onChange={(e) => getInputValue(e)}
+                      className="input"
+                    />
+                  </div>
+                </div>
+
+                {/* Tipo (reemplazado por radio buttons) */}
+                <div className={styles.field}>
+                  <div className="containerLabel">
+                    <label>Tipo</label>
+                  </div>
+                  <div className={styles.inputContainer}>
+                    <div className="radio-group">
+                      <label className={styles.containerLabelRadioButton}>
+                        <input
+                          type="radio"
+                          name="type"
+                          value="casa"
+                          checked={item.type === "casa"}
+                          onChange={(e) => getInputValue(e)}
+                        />
+                        Casa
+                      </label>
+                      <label className={styles.containerLabelRadioButton}>
+                        <input
+                          type="radio"
+                          name="type"
+                          value="departamento"
+                          checked={item.type === "departamento"}
+                          onChange={(e) => getInputValue(e)}
+                        />
+                        Departamento
+                      </label>
+                      <label className={styles.containerLabelRadioButton}>
+                        <input
+                          type="radio"
+                          name="type"
+                          value="oficina"
+                          checked={item.type === "oficina"}
+                          onChange={(e) => getInputValue(e)}
+                        />
+                        Oficina
+                      </label>
+                      <label className={styles.containerLabelRadioButton}>
+                        <input
+                          type="radio"
+                          name="type"
+                          value="terreno"
+                          checked={item.type === "terreno"}
+                          onChange={(e) => getInputValue(e)}
+                        />
+                        Terreno
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Estado (reemplazado por radio buttons) */}
+                <div className={styles.field}>
+                  <div className="containerLabel">
+                    <label>Estado</label>
+                  </div>
+                  <div className={styles.inputContainer}>
+                    <div className="radio-group">
+                      <label className={styles.containerLabelRadioButton}>
+                        <input
+                          type="radio"
+                          name="state"
+                          value="venta"
+                          checked={item.state === "venta"}
+                          onChange={(e) => getInputValue(e)}
+                        />
+                        Venta
+                      </label>
+                      <label className={styles.containerLabelRadioButton}>
+                        <input
+                          type="radio"
+                          name="state"
+                          value="arriendo"
+                          checked={item.state === "arriendo"}
+                          onChange={(e) => getInputValue(e)}
+                        />
+                        Arriendo
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={styles.field}>
+                  <div className="containerLabel">
+                    <label>Metros cuadrados</label>
+                  </div>
+                  <div className={styles.inputContainer}>
+                    <input
+                      type="text"
+                      name="mts"
+                      value={item.mts}
+                      onChange={(e) => getInputValue(e)}
+                      className="input"
+                    />
+                  </div>
+                </div>
+
+                <div className={styles.field}>
+                  <div className="containerLabel">
+                    <label>Habitaciones</label>
+                  </div>
+                  <div className={styles.inputContainer}>
+                    <input
+                      type="text"
+                      name="bedRooms"
+                      value={item.bedRooms}
+                      onChange={(e) => getInputValue(e)}
+                      className="input"
+                    />
+                  </div>
+                </div>
+
+                <div className={styles.field}>
+                  <div className="containerLabel">
+                    <label>Baños</label>
+                  </div>
+                  <div className={styles.inputContainer}>
+                    <input
+                      type="text"
+                      name="bathrooms"
+                      value={item.bathrooms}
+                      onChange={(e) => getInputValue(e)}
+                      className="input"
+                    />
+                  </div>
+                </div>
+
+                <div className={styles.field}>
+                  <div className="containerLabel">
+                    <label>Estacionamientos</label>
+                  </div>
+                  <div className={styles.inputContainer}>
+                    <input
+                      type="text"
+                      name="parking"
+                      value={item.parking}
+                      onChange={(e) => getInputValue(e)}
+                      className="input"
+                    />
+                  </div>
+                </div>
+
+                <div className={styles.field}>
+                  <div className="containerLabel">
+                    <label>Vista previa</label>
+                  </div>
+                  <div className={styles.inputContainer}>
+                    <input
+                      type="file"
+                      name="image"
+                      onChange={(e) => getInputValue(e)}
+                      className="input"
+                    />
+                  </div>
+                </div>
+              </>
             ) : (
-              <div>Selecciona una imagen para vista previa</div>
+              <>
+                <div className={styles.field}>
+                  <div className="containerLabel">
+                    <label>Más imágenes</label>
+                  </div>
+                  <div className={styles.inputContainer}>
+                    <input
+                      type="file"
+                      name="images"
+                      multiple
+                      onChange={(e) => getInputValue(e)}
+                      style={{borderBottom: "none"}}
+                    />
+                  </div>
+                </div>
+
+                <div className={styles.field}>
+                  <div className="containerLabel">
+                    <label>Descripción</label>
+                  </div>
+                  <div className={styles.inputContainer}>
+                    <textarea
+                      name="description"
+                      rows="4"
+                      cols="50"
+                      onChange={(e) => getInputValue(e)}
+                      value={item.description}
+                      className="input"
+                    />
+                  </div>
+                </div>
+
+                <div className={styles.field}>
+                  <div className={styles.inputContainer}>
+                    <input type="submit" value="Crear propiedad" style={{borderBottom: "none"}} />
+                  </div>
+                </div>
+              </>
             )}
-          </CardPropertyUI>
-        ) : (
-          <ModalProperty
-            itemSelected={item}
-            setItemSelected={(value) => setItem({...item, imageSelected: value.imageSelected})} // Pasamos la función de seteo de estado
-          />
-        )}
+          </form>
+        </div>
+
+        <div className={styles.previewNewProperty}>
+          {isMakePreview ? (
+            <CardPropertyUI styles={styles} item={item}>
+              {item.imagePreview ? (
+                <Image
+                  src={item.imagePreview}
+                  alt="Vista previa"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              ) : (
+                <div>Selecciona una imagen para vista previa</div>
+              )}
+            </CardPropertyUI>
+          ) : (
+            <ModalProperty
+              itemSelected={item}
+              setItemSelected={(value) => setItem({ ...item, imageSelected: value.imageSelected })}
+            />
+          )}
+        </div>
       </div>
     </div>
-    </>
   );
 }
