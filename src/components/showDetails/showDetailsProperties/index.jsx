@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import SpinnerButton from 'app/components/buttonSpinner/'
-import {createItem} from 'app/serverless/utils/db/'
-import styles from './modalHome.module.css'
+import {saveClientMessage} from 'app/serverless/utils/db/'
+import styles from './showDetailsProperties.module.css'
 
 // function tiempoTranscurrido(timestamp) {
 //   const ahora = new Date();
@@ -24,7 +24,7 @@ import styles from './modalHome.module.css'
 //   }
 // }
 
-export default function Modal({itemSelected, setItemSelected, children}){
+export default function ShowDetailsProperties({itemSelected, setItemSelected, children}){
 
   const [isContact, setIsContact] = useState(false);
 
@@ -38,7 +38,7 @@ export default function Modal({itemSelected, setItemSelected, children}){
     const email = emailRef.current.value;
     const phone = phoneRef.current.value;
     const message = messageRef.current.value;
-    await createItem("messages", {name, email, phone, message, id: itemSelected.id })
+    await saveClientMessage({name, email, phone, message, id: itemSelected.id })
     alert("Mensaje enviado. Seras contactado por el corredor")
   }
 

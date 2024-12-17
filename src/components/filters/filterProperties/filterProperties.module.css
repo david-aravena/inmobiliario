@@ -1,0 +1,31 @@
+.filter{
+  padding: 0 1rem;
+}
+
+.select{
+  border: 2px solid #9E005D;
+  margin: 0 10px;
+  background: transparent;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 10px 4px;
+  font-family: var(--font-montserrat-semi-bold), sans-serif;
+  font-weight: 600;
+}
+
+.buttonSubmit{
+  background: #9E005D;
+  border: none;
+  padding: 10px 1.5rem;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  color: white
+}
+
+@media (max-width: 1000px) {
+  .select {
+    width: 100%;
+    margin: 0;
+    margin: 10px 0;
+  }
+}

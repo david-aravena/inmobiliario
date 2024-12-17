@@ -1,4 +1,6 @@
-export default function CardPropertyUI({children, item, index, styles, setItemSelected}){
+import styles from './cardPropertyUI.module.css'
+
+export default function CardPropertyUI({children, item, index, setItemSelected}){
   return(
     <div key={index} className={styles.card}>
       <div className={styles.imageContainer}>

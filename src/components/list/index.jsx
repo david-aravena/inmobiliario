@@ -5,7 +5,7 @@ import Loading from 'app/components/loading/'
 import styles from './css/list.module.css'
 
 
-export default function List({ getItems, filter, CardUI , ModalUI, createItem}) {
+export default function List({ getItems, filter, CardUI , ShowDetails }) {
   const [items, setItems] = useState(null);
   const [itemSelected, setItemSelected] = useState(null);
  
@@ -13,8 +13,8 @@ export default function List({ getItems, filter, CardUI , ModalUI, createItem}) 
     setItemSelected(item)
   }
 
-  const handleFilter = (styles) => {
-    const filteredItems = filter(styles, setItems);
+  const handleFilter = () => {
+    const filteredItems = filter(setItems);
     if (filteredItems && filteredItems.length === 0) {
       alert("No se encontraron resultados con el filtro");
     }
@@ -44,7 +44,6 @@ export default function List({ getItems, filter, CardUI , ModalUI, createItem}) 
   return (
     <>
       <div className={styles.filterContainer}>
-        {createItem}
         {handleFilter(styles)}
       </div>
       {items ? (
@@ -52,11 +51,10 @@ export default function List({ getItems, filter, CardUI , ModalUI, createItem}) 
           <div className={styles.listContainer}>
             {items.map((item, index) => (
               <CardUI
-                key={index}  // No olvides la key cuando usas .map()
+                key={index}
                 item={item}
                 index={index}
-                styles={styles}
-                setItemSelected={handleSelectItem} // Usamos la función manejadora
+                setItemSelected={handleSelectItem}
               >
                 <Image
                   src={item.image}
@@ -70,12 +68,12 @@ export default function List({ getItems, filter, CardUI , ModalUI, createItem}) 
 
           {itemSelected && (
             <div>
-              <ModalUI
+              <ShowDetails
                 itemSelected={itemSelected}
-                setItemSelected={setItemSelected} // Pasamos la función de seteo de estado
+                setItemSelected={setItemSelected}
               >
                 <Navbar />
-              </ModalUI>
+              </ShowDetails>
             </div>
           )}
           

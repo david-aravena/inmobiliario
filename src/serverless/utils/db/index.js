@@ -13,12 +13,12 @@ const requestDocs = async(request) => {
   }
 }
 
-export const getCollection = async (nameCollection, results) => {
+export const getProperties = async () => {
   try{
-    const reference = query(collection(db, nameCollection), limit(results));
+    const reference = query(collection(db, "properties"), limit(10));
     return await requestDocs(reference)
   } catch(error){
-    console.log("getCollection: ", error)
+    console.log("getCollection: ", error.message)
   }
 }
 
@@ -72,9 +72,9 @@ export const getUserItems = async(nameCollection, id) => {
 }
 
 
-export const createItem = async(nameCollection, obj) => {
+export const saveClientMessage = async(dataMessage) => {
   try {
-    const docRef = await addDoc(collection(db, nameCollection), obj);
+    const docRef = await addDoc(collection(db, "messages"), dataMessage);
     console.log("create item: ", docRef)
     return docRef
   } catch (e) {

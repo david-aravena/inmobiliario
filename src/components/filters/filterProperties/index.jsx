@@ -2,9 +2,15 @@
 import { useState } from 'react';
 import {filterItems} from 'app/serverless/utils/db/'
 import SpinnerButton from 'app/components/buttonSpinner/'
+import styles from './filterProperties.module.css'
 
-const Filter = ({setResult, styles, obj}) => {
-    const [filters, setFilters] = useState(obj);
+const FilterProperties = ({setResult}) => {
+    const [filters, setFilters] = useState({
+        ubication: '',
+        type: '',
+        state: '',
+        condition: ''
+      });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -63,4 +69,4 @@ const Filter = ({setResult, styles, obj}) => {
     );
 };
 
-export default Filter;
+export default FilterProperties;

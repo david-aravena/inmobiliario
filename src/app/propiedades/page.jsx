@@ -2,8 +2,8 @@
 import { useEffect, useState } from 'react';
 import CreateProperty from './components/createProperty/CreateProperty'
 import List from 'app/components/list/'
-import Filter from 'app/components/filter/'
-import CardPropertyUI from 'app/components/cardUI/CardPropertyUI'
+import Filter from 'app/components/filters/filterProperties'
+import CardPropertyUI from 'app/components/ui/cardProperty/CardPropertyUI'
 import EditModalProperty from 'app/components/modal/properties/EditModalProperty'
 import {getUserItems} from 'app/serverless/utils/db/'
 import {saveProperty} from 'app/utils/saveItems/createProperty'

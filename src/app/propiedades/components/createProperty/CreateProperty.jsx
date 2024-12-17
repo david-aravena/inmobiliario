@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
-import CardPropertyUI from "app/components/cardUI/CardPropertyUI";
+import CardPropertyUI from "app/components/ui/cardProperty/CardPropertyUI";
 import ModalProperty from "app/components/modal/properties/ModalPropertyUI";
 // import styles from "./createProperty.module.css";
 import styles from 'app/components/list/css/list.module.css';

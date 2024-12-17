@@ -5,7 +5,7 @@ import List from 'app/components/list/'
 import useAuth from 'app/utils/user/useAuth'
 import {getUserItems} from 'app/serverless/utils/db/'
 import CardClientUI from 'app/components/cardUI/CardClientUI'
-import FilterClient from 'app/components/filter/FilterClient'
+import FilterClient from 'app/components/filters/FilterClient'
 import EditClient from 'app/app/clientes/components/editClient/EditClient'
 import {saveItemsWithFiles} from './utils/saveItemsWithFiles'
 

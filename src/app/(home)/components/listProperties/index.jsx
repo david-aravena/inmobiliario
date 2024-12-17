@@ -1,25 +1,18 @@
 "use client"
 import List from 'app/components/list/'
-import {getCollection} from "app/serverless/utils/db/"
-import Filter from 'app/components/filter/'
-import CardPropertyUI from 'app/components/cardUI/CardPropertyUI'
-import ModalProperty from './ModalHomeUI'
+import {getProperties} from "app/serverless/utils/db/"
+import FilterProperties from 'app/components/filters/filterProperties'
+import CardPropertyUI from 'app/components/ui/cardProperty/CardPropertyUI'
+import ShowDetailsProperties from 'app/components/showDetails/showDetailsProperties/'
 
 export default function ListProperties(){
 
-  const obj = {
-    ubication: '',
-    type: '',
-    state: '',
-    condition: ''
-  }
-
   return(
     <List 
-      getItems={() => getCollection("properties", 10)}
-      filter={(styles, setResult) => <Filter styles={styles} setResult={(result) => setResult(result) } obj={obj} />}
+      getItems={() => getProperties()}
+      filter={(setResult) => <FilterProperties setResult={(result) => setResult(result) } />}
       CardUI={CardPropertyUI}
-      ModalUI={ModalProperty} 
+      ShowDetails={ShowDetailsProperties} 
     />
   )
 }
